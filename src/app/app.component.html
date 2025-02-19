@@ -1,6 +1,6 @@
 <mat-form-field>
   <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
-    cdkAutosizeMaxRows="5">{{calculo}}</textarea>
+    cdkAutosizeMaxRows="10" >{{calculo}}</textarea>
 </mat-form-field>
 <div class="row">
   <div class="border">
@@ -8,7 +8,7 @@
       <button mat-raised-button (click)="division()">/</button>
       <button mat-raised-button (click)="multiplicacion()">*</button>
       <button mat-raised-button (click)="borrar()">C</button>
-      <button mat-raised-button (click)="borrarUltimo()">CE</button>
+      <button mat-raised-button (click)="borrarUltimo()"><mat-icon>keyboard_backspace</mat-icon></button>
     </div>
     <div class="separación"></div>
     <div>
