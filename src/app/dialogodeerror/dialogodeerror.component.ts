@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { MatDialogModule,MatDialogRef ,MatDialogActions} from '@angular/material/dialog';
-
+import {MatButtonModule} from '@angular/material/button';
 @Component({
   selector: 'app-dialogodeerror',
-  imports: [MatDialogModule],
+  imports: [MatDialogModule,MatButtonModule],
   templateUrl: './dialogodeerror.component.html',
   styleUrl: './dialogodeerror.component.scss'
 })

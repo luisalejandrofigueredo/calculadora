@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, ElementRef, HostListener, inject, ViewChild } from '@angular/core';
+import { Component,  HostListener, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -155,6 +155,7 @@ export class AppComponent {
   }
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
+    event.preventDefault();
     if(event.key === '('){
       this.abro_parentesis(); 
     }
@@ -209,10 +210,10 @@ export class AppComponent {
     if (event.key === 'Enter') {
       this.total();
     }
-    if (event.key === 'Backspace') {
+    if (event.key === 'Backspace' || event.key === 'Delete') {
       this.borrarUltimo();
     }
-    if (event.key === 'C') {
+    if (event.key === 'C' || event.key === 'c') {
       this.borrar();
     }
   }
