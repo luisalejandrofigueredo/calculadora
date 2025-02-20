@@ -25,7 +25,7 @@ import {AutoscrollDirective  } from "./autoscroll.directive";
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements AfterViewChecked{
+export class AppComponent {
   title = 'calculadora';
   calculo = '0';
   flagPunto = false;
@@ -154,6 +154,12 @@ export class AppComponent implements AfterViewChecked{
   }
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
+    if(event.key === '('){
+      this.abro_parentesis(); 
+    }
+    if(event.key === ')'){
+      this.cierro_parentesis(); 
+    }  
     if (event.key === '1') {
       this.uno();
     }
@@ -210,12 +216,5 @@ export class AppComponent implements AfterViewChecked{
     }
   }
 
-  ngAfterViewChecked() {
-    this.scrollToBottom();
-  }
-  scrollToBottom(): void {
-    try {
-      this.miInput!.nativeElement.scrollTop = this.miInput!.nativeElement.scrollHeight;
-    } catch (err) { }
-  }
+ 
 }
