@@ -9,5 +9,4 @@ import { MatDialogModule,MatDialogRef ,MatDialogActions} from '@angular/material
 })
 export class DialogodeerrorComponent {
   readonly dialogRef = inject(MatDialogRef<DialogodeerrorComponent>);
-
 }

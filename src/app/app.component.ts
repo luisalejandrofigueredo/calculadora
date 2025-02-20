@@ -113,6 +113,12 @@ export class AppComponent {
     this.calculo = this.calculo + "/" + "\n";
     this.flagPunto = false;
   }
+  abro_parentesis() {
+    this.calculo = this.calculo + "(";    
+  }
+  cerro_parentesis() {
+    this.calculo = this.calculo + ")";
+  } 
   punto() {
     if (this.flagPunto === false) {
       if (this.calculo === '0') {
@@ -198,4 +204,5 @@ export class AppComponent {
       this.borrar();
     }
   }
+
 }
