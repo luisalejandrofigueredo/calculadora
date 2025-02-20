@@ -1,24 +1,29 @@
 
 .textareacampo{
     background-color: green;
-    color: black;
-    border-color: aquamarine;
-    
+    color:white;
+    text-emphasis-color: white;
+    font-family: "Jacquarda Bastarda 9", serif;
+    font-weight: 400;
+    font-style: normal;
 }	
 
 .button
 {
     width: 200px;
 }
+
 .separación
 {
     margin-top: 20px;
 }
+
 .border
 {
     display: flex;
     flex-flow: column;
 }
+
 .row
 {
     display: flex;

@@ -116,7 +116,7 @@ export class AppComponent {
   abro_parentesis() {
     this.calculo = this.calculo + "(";    
   }
-  cerro_parentesis() {
+  cierro_parentesis() {
     this.calculo = this.calculo + ")";
   } 
   punto() {
