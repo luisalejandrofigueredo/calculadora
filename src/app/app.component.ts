@@ -103,19 +103,19 @@ export class AppComponent {
     }
   }
   suma() {
-    this.calculo = this.calculo + "+" + "\n";
+    this.calculo = this.calculo + "+";
     this.flagPunto = false;
   }
   resta() {
-    this.calculo = this.calculo + "-" + "\n";
+    this.calculo = this.calculo + "-"; 
     this.flagPunto = false;
   }
   multiplicacion() {
-    this.calculo = this.calculo + "*" + "\n";
+    this.calculo = this.calculo + "*";
     this.flagPunto = false;
   }
   division() {
-    this.calculo = this.calculo + "/" + "\n";
+    this.calculo = this.calculo + "/";
     this.flagPunto = false;
   }
   abro_parentesis() {
