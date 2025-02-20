@@ -103,7 +103,11 @@ export class AppComponent {
     this.flagPunto = false;
   }
   resta() {
-    this.calculo = this.calculo + "-"; 
+    if (this.calculo === '0') {
+      this.calculo = "-"; 
+    } else {
+      this.calculo = this.calculo + "-";
+    }
     this.flagPunto = false;
   }
   multiplicacion() {
@@ -142,6 +146,7 @@ export class AppComponent {
   total() {
     try {
       this.calculo = this.calculo + "\n" + window.eval(this.calculo) + "\n";
+      this.calculo= this.calculo+" presione C para limpiar pantalla";
     } catch (error) {
       const dialogRef = this.dialog.open(DialogodeerrorComponent);
       dialogRef.afterClosed().subscribe(result => {
