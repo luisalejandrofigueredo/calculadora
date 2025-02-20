@@ -30,10 +30,6 @@ export class AppComponent {
   calculo = '0';
   flagPunto = false;
   readonly dialog = inject(MatDialog);
-  @ViewChild('miInput') miInput: ElementRef | undefined;
-  simulateArrowDown() {
-    this.miInput!.nativeElement.scrollTop = this.miInput!.nativeElement.scrollHeight;
-  }
   uno() {
     if (this.calculo === '0') {
       this.calculo = '1';
