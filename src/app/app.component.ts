@@ -19,7 +19,7 @@ import {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatButtonModule, MatFormFieldModule, TextFieldModule, MatInputModule, MatIconModule, MatDialogModule, DialogodeerrorComponent],
+  imports: [RouterOutlet, MatButtonModule, MatFormFieldModule, TextFieldModule, MatInputModule, MatIconModule, MatDialogModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -134,12 +134,10 @@ export class AppComponent {
   }
   total() {
     try {
-      console.log(window.eval(this.calculo));
-      this.calculo = this.calculo + "\n" + window.eval(this.calculo);
+      this.calculo = this.calculo + "\n" + window.eval(this.calculo) + "\n";
     } catch (error) {
       const dialogRef = this.dialog.open(DialogodeerrorComponent);
       dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
       })         
     }
   }
