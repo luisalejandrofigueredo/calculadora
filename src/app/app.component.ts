@@ -1,4 +1,4 @@
-import { Component, HostListener, inject } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, HostListener, inject, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,18 +16,24 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {AutoscrollDirective  } from "./autoscroll.directive";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatButtonModule, MatFormFieldModule, TextFieldModule, MatInputModule, MatIconModule, MatDialogModule],
+  imports: [RouterOutlet, MatButtonModule, MatFormFieldModule, TextFieldModule, MatInputModule, MatIconModule, MatDialogModule, ScrollingModule, AutoscrollDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements AfterViewChecked{
   title = 'calculadora';
   calculo = '0';
   flagPunto = false;
   readonly dialog = inject(MatDialog);
+  @ViewChild('miInput') miInput: ElementRef | undefined;
+  simulateArrowDown() {
+    this.miInput!.nativeElement.scrollTop = this.miInput!.nativeElement.scrollHeight;
+  }
   uno() {
     if (this.calculo === '0') {
       this.calculo = '1';
@@ -99,7 +105,6 @@ export class AppComponent {
   suma() {
     this.calculo = this.calculo + "+" + "\n";
     this.flagPunto = false;
-
   }
   resta() {
     this.calculo = this.calculo + "-" + "\n";
@@ -203,5 +208,14 @@ export class AppComponent {
     if (event.key === 'C') {
       this.borrar();
     }
+  }
+
+  ngAfterViewChecked() {
+    this.scrollToBottom();
+  }
+  scrollToBottom(): void {
+    try {
+      this.miInput!.nativeElement.scrollTop = this.miInput!.nativeElement.scrollHeight;
+    } catch (err) { }
   }
 }

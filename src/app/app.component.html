@@ -1,7 +1,6 @@
-<mat-form-field style="width: 400px;font-size: 20px;font-weight: 400;">
-  <textarea matInput  disabled="true"  cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
-    cdkAutosizeMaxRows="10" >{{calculo}}</textarea>
-</mat-form-field>
+<cdk-virtual-scroll-viewport itemSize="200" class="scroll-viewport">
+    <textarea appAutoscroll  disabled="true" rows="10" cols="50">{{calculo}}</textarea>
+</cdk-virtual-scroll-viewport>
 <div class="row">
   <div class="border">
     <div>
@@ -13,33 +12,33 @@
     </div>
     <div class="separación"></div>
     <div>
-  <div class="border">
-    <div>
-      <button mat-raised-button (click)="siete()">7</button>
-      <button mat-raised-button (click)="ocho()">8</button>
-      <button mat-raised-button (click)="nueve()">9</button>
-      <button mat-raised-button (click)="suma()" >+</button>
-      <button mat-raised-button (click)="cierro_parentesis()">)</button>
+      <div class="border">
+        <div>
+          <button mat-raised-button (click)="siete()">7</button>
+          <button mat-raised-button (click)="ocho()">8</button>
+          <button mat-raised-button (click)="nueve()">9</button>
+          <button mat-raised-button (click)="suma()">+</button>
+          <button mat-raised-button (click)="cierro_parentesis()">)</button>
+        </div>
+        <div class="separación"></div>
+        <div>
+          <button mat-raised-button (click)="cuatro()">4</button>
+          <button mat-raised-button (click)="cinco()">5</button>
+          <button mat-raised-button (click)="seis()">6</button>
+          <button mat-raised-button (click)="resta()">-</button>
+        </div>
+        <div class="separación"></div>
+        <div>
+          <button mat-raised-button (click)="uno()">1</button>
+          <button mat-raised-button (click)="dos()">2</button>
+          <button mat-raised-button (click)="tres()">3</button>
+          <button mat-raised-button (click)="total()"><mat-icon>keyboard_return</mat-icon></button>
+        </div>
+        <div class="separación"></div>
+        <div class="row">
+          <button mat-raised-button width class="button" (click)="cero()">0</button>
+          <button mat-raised-button (click)="punto()">.</button>
+        </div>
+      </div>
     </div>
-    <div class="separación"></div>
-    <div>
-      <button mat-raised-button (click)="cuatro()">4</button>
-      <button mat-raised-button (click)="cinco()">5</button>
-      <button mat-raised-button (click)="seis()">6</button>
-      <button mat-raised-button (click)="resta()">-</button>
-    </div>
-    <div class="separación"></div>
-    <div>
-      <button mat-raised-button (click)="uno()">1</button>
-      <button mat-raised-button (click)="dos()">2</button>
-      <button mat-raised-button (click)="tres()">3</button>
-      <button mat-raised-button (click)="total()" ><mat-icon>keyboard_return</mat-icon></button>
-    </div>
-    <div class="separación"></div>
-    <div class="row">
-    <button mat-raised-button width class="button" (click)="cero()">0</button>
-    <button mat-raised-button (click)="punto()" >.</button>
-  </div>
-</div>
-</div>
-<router-outlet />
+    <router-outlet />
