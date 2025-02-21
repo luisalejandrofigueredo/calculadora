@@ -145,7 +145,7 @@ export class AppComponent {
   }
   total() {
     try {
-      this.calculo = this.calculo + "\n" + window.eval(this.calculo) + "\n";
+      this.calculo = this.calculo + "\n" + window.eval(this.calculo).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + "\n";
       this.calculo= this.calculo+" presione C para limpiar pantalla";
     } catch (error) {
       const dialogRef = this.dialog.open(DialogodeerrorComponent);
@@ -153,7 +153,7 @@ export class AppComponent {
       })         
     }
   }
-  @HostListener('window:keyup', ['$event'])
+  @HostListener('window:keydown', ['$event'])
   keyEvent(event: KeyboardEvent) {
     event.preventDefault();
     if(event.key === '('){
